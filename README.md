@@ -1,8 +1,8 @@
-###  DATE: 
+###  DATE:22-03-2024
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME:Yuva Sree M
+###  ROLL NO :212223230251
+###  DEPARTMENT:AI-DS 
 
 
 # EXPERIMENT NO 05 INTERFACING ANALOG OUTPUT SERVO MOTOR WITH ARDUINO
@@ -74,13 +74,61 @@ CIRCUIT DIAGRAM
 
 
 ### PROGRAM :
- 
 
+ ```
+#include<Servo.h>
+Servo sr1;
+int pos=0;
+int red= 9;
+int green=8;
 
+void setup()
+{
+  sr1.attach(6);
+  Serial.begin(9600);
+  pinMode(red,OUTPUT);
+  pinMode(green,OUTPUT);
+}
+void loop()
+{
+  for(pos=0;pos<=180;pos+=5)
+  {
+    sr1.write(pos);
+     Serial.println(pos);
+  if(pos>=120)
+    {
+      digitalWrite(red,HIGH);
+      delay(200);
+      digitalWrite(red,LOW);
+      delay(200);
+    }
+  }
+   for(pos=180;pos>=0;pos-=5)
+   {
+     sr1.write(pos);
+      Serial.println(pos);
+  if(pos<=120)
+  {
+    digitalWrite(red,HIGH);
+    delay(200);
+    digitalWrite(red,LOW);
+    delay(200);
+  }
+  
+   }
+}
 
+```
 
+### Circuit:
 
+![Screenshot 2024-03-22 163623](https://github.com/Yuvasreemuthusamy/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/144870887/175e4bee-a81d-405c-a6b7-c0c28137760f)
 
+### Schematic view:
+![Screenshot 2024-03-22 163726](https://github.com/Yuvasreemuthusamy/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/144870887/0c152071-0e72-43db-9d11-32ff57654abb)
+
+### Graph:
+![Screenshot 2024-03-22 162504](https://github.com/Yuvasreemuthusamy/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/144870887/73af76ac-429b-43a1-b5a5-9c3fa6bb9e42)
 
 
 
